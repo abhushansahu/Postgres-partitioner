@@ -11,14 +11,7 @@ It can also be used as Data Archival if followed the PostRun step below.
 Preferably when the postgres instance is running as an RDS instance in AWS
 
 ### Process
-What happens whe the [code](runner/run.py) is ran. 
-
-It creates a new partitioned table of the previously giant un-partitioned one a monthly schema.<br> 
-This process reduces the stress in the production cost for inserts, select and deletes.<br>
-This process reduces table bloating, although it might increase the overall index size, but with an advantage as the index would not be dealing with unbalance Btree.<br>
-Once the table is partitioned, the instance will then needs to have a manual snapshot.<br>
-This snapshot will be the historical rds which can be restored to get the data for point in time.<br>
-Furthermore the current rds being partitioned can get rid of historical data by issuing drop commands to the child table, without impacting any process and resource
+Checkout the [How To?](how_to.md) file to understand the process.
 
 
 
